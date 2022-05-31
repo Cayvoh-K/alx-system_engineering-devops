@@ -1,2 +1,2 @@
 #!/bin/bash
-find <directory-name> type -f | wc -l
+find . -mindepth 1 -type d
