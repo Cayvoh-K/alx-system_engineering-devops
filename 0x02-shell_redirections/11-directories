@@ -1,0 +1,2 @@
+#!/bin/bash
+find <directory-name> type -f | wc -l
