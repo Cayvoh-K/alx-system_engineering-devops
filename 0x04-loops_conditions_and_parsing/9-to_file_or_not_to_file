@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #Checks file existence, emptiness, and regularity
 
-file="bestschool"
+file="school"
 
 if [ ! -e "$file" ]; then
 echo "$file" file does not exist
