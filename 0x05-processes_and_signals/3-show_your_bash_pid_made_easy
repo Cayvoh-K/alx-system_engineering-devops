@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Implementation of task 2 sing pgrep
+pgrep -1 bash
