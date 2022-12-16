@@ -1,0 +1,7 @@
+#client configuration file
+Host alp
+  HostName 52.91.160.197
+  User ubuntu
+  indentitiesOnly yes
+  Indetityfile ~/.ssh/school
+  PasswordAuthentification no
