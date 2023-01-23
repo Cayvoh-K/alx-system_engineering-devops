@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# Installs nginx and configure a new Ubuntu machine
+
+REDIRECT="\\\trewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;"
+
+sudo apt-get -y update
+sudo apt-get -y install nginx
+sudo ufw allow 'Nginx HTTP'
+echo "Hello World!" | sudo tee /var/ww/html/index.html
+sudo sed -i "30i $REDIRECT" /etc/nginx/sites-available/default
+
+#configures Nginx server to have a custom 404
+echo Ceci n'est pas une page | sudo tee/var/www/html/error404
+new_str="\\terror_page 404 /error404;"
+sudo sed -i "31i $new_str" /etc/nginx/sites-available/default
+sudo service nginx start
