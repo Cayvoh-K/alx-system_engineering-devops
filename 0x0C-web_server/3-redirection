@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+Installs nginx and configure a new Ubuntu machine
+
+REDIRECT="\\\trewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;"
+
+sudo apt-get -y update
+sudo apt-get -y install nginx
+sudo ufw allow 'Nginx HTTP'
+echo "Hello World!" | sudo tee /var/ww/html/index.html
+sudo sed -i "30i $REDIRECT" /etc/nginx/sites-available/default
+sudo service nginx start
