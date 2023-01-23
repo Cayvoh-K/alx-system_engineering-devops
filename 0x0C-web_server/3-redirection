@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-Installs nginx and configure a new Ubuntu machine
+# Installs nginx and configure a new Ubuntu machine
 
 REDIRECT="\\\trewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;"
 
