@@ -1,25 +1,7 @@
 #!/usr/bin/env bash
-# Run nginx as the nginx user
-
-# Stop Apache processes
+# Fixes a web server to run Nginx as the nginx user listening on port 8080.
+sed -i "s/#user www-data/user nginx/" /etc/nginx/nginx.conf
+sed -i "s/80/8080/g" /etc/nginx/sites-available/default
+chmod 644 /etc/nginx/nginx.conf
 pkill apache2
-
-# If port 80 for IPv4 is being listened to, it is changed to port 8080
-if grep -q "listen 80" /etc/nginx/sites-available/default ; then
-    sed -i "s/listen 80/listen 8080/" /etc/nginx/sites-available/default
-fi
-
-# If port 80 for IPv6 is being listened to, it is changed to port 808
-
-if grep -q "listen \[::\]:80" /etc/nginx/sites-available/default ; the
-    sed -i "s/listen \[::\]:80/listen \[::\]:8080/" /etc/nginx/sites-available/default
-fi
-
-# Update Nginx settings file owner and group
-chown nginx:nginx /etc/nginx/nginx.conf
-
-# Update Nginx settings file permission
-chmod 0644 /etc/nginx/nginx.conf
-
-# Start the nginx service as the nginx user
-su nginx -c "service nginx start"
+sudo -u nginx service nginx start
